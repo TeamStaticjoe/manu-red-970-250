@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="sd-manu-red-970-250" content="width=970,height=250" />
+		<script type="text/javascript">
+			var clickTag = "https://www.qualcomm.com/de/snapdragon#overview"
+		</script>
+
+		<style>
+			body,
+			html {
+				margin: 0;
+				padding: 0;
+			}
+			.sd-manu-red-970-250 {
+				width: 970px;
+				height: 250px;
+				background-color: #000;
+				overflow: hidden;
+				position: relative;
+				display: flex;
+			}
+
+			.top-text {
+				position: absolute;
+				z-index: 20;
+				top: 19px;
+				left: -200px;
+			}
+
+			.bottom-text {
+				position: absolute;
+				z-index: 20;
+				top: 154px;
+				left: 1000px;
+			}
+
+			.lock-up {
+				position: absolute;
+				z-index: 20;
+				top: 300px;
+				right: 115px;
+			}
+
+			.button {
+				position: absolute;
+				z-index: 20;
+				bottom: 30px;
+				width: 102px;
+				height: 31px;
+				right: 155px;
+				opacity: 0;
+			}
+
+			.red-mat {
+				width: 970px;
+				height: 250px;
+				position: absolute;
+				z-index: 10;
+				transform: scale(500%), translateX(200px);
+			}
+			.image {
+				position: absolute;
+				z-index: 1;
+				transform-origin: top left;
+			}
+		</style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	</head>
+	<body>
+		<a
+			href="javascript:window.open(window.clickTag)"
+			class="sd-manu-red-970-250"
+			width="970"
+			height="250"
+		>
+			<img class="top-text" src="assets/manu-red-970-250-top-text.png" alt="" />
+			<img
+				class="bottom-text"
+				src="assets/manu-red-970-250-bottom-text.png"
+				alt=""
+			/>
+			<img class="lock-up" src="assets/manu-red-970-250-lock-up.png" alt="" />
+			<img
+				class="button"
+				src="assets/manu-red-970-250-button.png"
+				width="102"
+				height="31"
+				alt=""
+			/>
+			<img class="red-mat" src="assets/manu-red-970-250-mat.png" alt="" />
+			<img class="image" src="assets/manu-red-970-250-image.jpg" alt="" />
+		</a>
+	</body>
+	<script>
+		const sdManURed970x250Animate = () => {
+			const redMat = document.querySelector(".sd-manu-red-970-250 .red-mat")
+			const image = document.querySelector(".sd-manu-red-970-250 .image")
+			const topText = document.querySelector(".sd-manu-red-970-250 .top-text")
+			const bottomText = document.querySelector(
+				".sd-manu-red-970-250 .bottom-text"
+			)
+			const lockUp = document.querySelector(".sd-manu-red-970-250 .lock-up")
+			const button = document.querySelector(".sd-manu-red-970-250 .button")
+
+			const tl = gsap.timeline()
+
+			tl.set(redMat, { scaleX: "500%", scaleY: "500%", x: "1000px" })
+				.set(topText, { x: -200 })
+				.set(bottomText, { x: 1000 })
+				.set(lockUp, { y: 300 })
+				.set(image, { scaleX: "200%", scaleY: "200%" })
+
+				.to(redMat, {
+					y: 0,
+					scaleX: "100%",
+					scaleY: "100%",
+					x: 0,
+					duration: 1.5,
+					ease: "power4.in",
+				})
+				.fromTo(
+					image,
+					{ scaleX: "200%", scaleY: "200%" },
+					{
+						x: 0,
+						scaleX: "100%",
+						scaleY: "100%",
+						duration: 1.65,
+						ease: "power4.in",
+					},
+					"<.25"
+				)
+				.to(topText, { x: 248, duration: 1, ease: "power1.inOut" }, "-=1")
+				.to(bottomText, { x: -684, duration: 1, ease: "power1.inOut" }, "<.125")
+				.to(
+					button,
+					{ autoAlpha: 1, duration: 0.5, ease: "power1.inOut" },
+					"<.75"
+				)
+				.to(lockUp, { y: -270, duration: 0.5, ease: "power1.inOut" }, "-=.65")
+		}
+		sdManURed970x250Animate()
+	</script>
+</html>
